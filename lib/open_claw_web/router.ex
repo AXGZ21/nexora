@@ -24,6 +24,11 @@ defmodule OpenClawWeb.Router do
     live "/analytics", AnalyticsLive, :index
     live "/skills", SkillsLive, :index
     live "/settings", SettingsLive, :index
+    live "/providers", ProvidersLive, :index
+    live "/org", OrgChartLive, :index
+    live "/goals", GoalsLive, :index
+    live "/tickets", TicketsLive, :index
+    live "/governance", GovernanceLive, :index
   end
 
   scope "/api", OpenClawWeb do

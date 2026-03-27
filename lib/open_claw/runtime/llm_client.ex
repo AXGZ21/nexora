@@ -32,19 +32,31 @@ defmodule OpenClaw.Runtime.LLMClient do
     provider_module(provider).models()
   end
 
-  @doc "List all configured providers."
+  @doc "List all configured providers, including custom ones."
   def providers do
-    [
+    built_in = [
       %{id: :anthropic, name: "Anthropic", models: models(:anthropic)},
       %{id: :openai, name: "OpenAI", models: models(:openai)},
       %{id: :google, name: "Google", models: models(:google)},
       %{id: :ollama, name: "Ollama (Local)", models: models(:ollama)}
     ]
+
+    custom = OpenClaw.Runtime.CustomProvider.list()
+      |> Enum.map(fn p -> %{id: {:custom, p.id}, name: p.name, models: p.models || []} end)
+
+    built_in ++ custom
   end
 
   defp provider_module(:anthropic), do: OpenClaw.Runtime.Providers.Anthropic
   defp provider_module(:openai), do: OpenClaw.Runtime.Providers.OpenAI
   defp provider_module(:google), do: OpenClaw.Runtime.Providers.Google
   defp provider_module(:ollama), do: OpenClaw.Runtime.Providers.Ollama
+  defp provider_module({:custom, _id}), do: :custom
+  defp provider_module(other) when is_binary(other) do
+    case OpenClaw.Runtime.CustomProvider.get(other) do
+      nil -> raise("Unknown provider: #{inspect(other)}")
+      _provider -> :custom
+    end
+  end
   defp provider_module(other), do: raise("Unknown provider: #{inspect(other)}")
 end

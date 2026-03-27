@@ -25,8 +25,16 @@
       <.nav_link href={~p"/agents"} icon="agents" label="Agent Hub" active={@active_tab == :agents} />
       <.nav_link href={~p"/terminal"} icon="terminal" label="Terminal" active={@active_tab == :terminal} />
 
+      <p class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider px-3 mt-6 mb-2">Organization</p>
+
+      <.nav_link href={~p"/org"} icon="org" label="Org Chart" active={@active_tab == :org} />
+      <.nav_link href={~p"/goals"} icon="goals" label="Goals" active={@active_tab == :goals} />
+      <.nav_link href={~p"/tickets"} icon="tickets" label="Tickets" active={@active_tab == :tickets} />
+      <.nav_link href={~p"/governance"} icon="governance" label="Governance" active={@active_tab == :governance} />
+
       <p class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider px-3 mt-6 mb-2">Operations</p>
 
+      <.nav_link href={~p"/providers"} icon="providers" label="Providers" active={@active_tab == :providers} />
       <.nav_link href={~p"/analytics"} icon="analytics" label="Cost Analytics" active={@active_tab == :analytics} />
       <.nav_link href={~p"/skills"} icon="skills" label="Skills" active={@active_tab == :skills} />
       <.nav_link href={~p"/settings"} icon="settings" label="Settings" active={@active_tab == :settings} />

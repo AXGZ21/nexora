@@ -10,7 +10,14 @@ defmodule OpenClaw.Application do
       {Phoenix.PubSub, name: OpenClaw.PubSub},
       {Registry, keys: :unique, name: OpenClaw.AgentRegistry},
       OpenClaw.Billing.CostTracker,
+      OpenClaw.Billing.BudgetEnforcer,
       OpenClaw.Skills.SkillRegistry,
+      OpenClaw.Runtime.CustomProvider,
+      OpenClaw.Runtime.Heartbeat,
+      OpenClaw.Org.OrgChart,
+      OpenClaw.Goals.GoalTracker,
+      OpenClaw.Tickets.TicketSystem,
+      OpenClaw.Governance,
       OpenClaw.Runtime.AgentSupervisor,
       OpenClawWeb.Endpoint
     ]
