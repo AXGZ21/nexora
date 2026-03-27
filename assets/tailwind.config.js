@@ -9,8 +9,8 @@ module.exports = {
   darkMode: 'class',
   content: [
     "./js/**/*.js",
-    "../lib/open_claw_web.ex",
-    "../lib/open_claw_web/**/*.*ex"
+    "../lib/nexora_web.ex",
+    "../lib/nexora_web/**/*.*ex"
   ],
   theme: {
     extend: {

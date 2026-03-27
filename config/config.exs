@@ -7,24 +7,24 @@
 # General application configuration
 import Config
 
-config :open_claw,
+config :nexora,
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :open_claw, OpenClawWeb.Endpoint,
+config :nexora, NexoraWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: OpenClawWeb.ErrorHTML, json: OpenClawWeb.ErrorJSON],
+    formats: [html: NexoraWeb.ErrorHTML, json: NexoraWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: OpenClaw.PubSub,
+  pubsub_server: Nexora.PubSub,
   live_view: [signing_salt: "mtZ9p6K9"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  open_claw: [
+  nexora: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -34,7 +34,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.3",
-  open_claw: [
+  nexora: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

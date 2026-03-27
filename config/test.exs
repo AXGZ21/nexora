@@ -2,7 +2,7 @@ import Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :open_claw, OpenClawWeb.Endpoint,
+config :nexora, NexoraWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "UdIMVmPnty4M+ur6hun9F3G8rOSvAzfFD4Z/98JjjTvbZgXnpjdf3JhJ8aFEfJLO",
   server: false

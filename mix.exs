@@ -1,9 +1,9 @@
-defmodule OpenClaw.MixProject do
+defmodule Nexora.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :open_claw,
+      app: :nexora,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule OpenClaw.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {OpenClaw.Application, []},
+      mod: {Nexora.Application, []},
       extra_applications: [:logger, :runtime_tools, :inets, :ssl]
     ]
   end
@@ -64,10 +64,10 @@ defmodule OpenClaw.MixProject do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind open_claw", "esbuild open_claw"],
+      "assets.build": ["tailwind nexora", "esbuild nexora"],
       "assets.deploy": [
-        "tailwind open_claw --minify",
-        "esbuild open_claw --minify",
+        "tailwind nexora --minify",
+        "esbuild nexora --minify",
         "phx.digest"
       ]
     ]

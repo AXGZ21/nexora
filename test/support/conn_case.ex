@@ -1,4 +1,4 @@
-defmodule OpenClawWeb.ConnCase do
+defmodule NexoraWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule OpenClawWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use OpenClawWeb.ConnCase, async: true`, although
+  by setting `use NexoraWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,14 +20,14 @@ defmodule OpenClawWeb.ConnCase do
   using do
     quote do
       # The default endpoint for testing
-      @endpoint OpenClawWeb.Endpoint
+      @endpoint NexoraWeb.Endpoint
 
-      use OpenClawWeb, :verified_routes
+      use NexoraWeb, :verified_routes
 
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import OpenClawWeb.ConnCase
+      import NexoraWeb.ConnCase
     end
   end
 
