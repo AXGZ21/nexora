@@ -71,7 +71,7 @@ defmodule OpenClaw.Runtime.Providers.Anthropic do
     ]
   end
 
-  defp api_key, do: System.get_env("ANTHROPIC_API_KEY")
+  defp api_key, do: OpenClaw.Runtime.ProviderConfig.get_api_key("ANTHROPIC_API_KEY")
 
   defp format_messages(messages) do
     Enum.map(messages, fn msg ->

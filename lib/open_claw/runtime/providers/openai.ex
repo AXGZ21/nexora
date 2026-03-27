@@ -7,7 +7,7 @@ defmodule OpenClaw.Runtime.Providers.OpenAI do
 
   @impl true
   def chat(model, messages, system_prompt, opts \\ []) do
-    api_key = System.get_env("OPENAI_API_KEY")
+    api_key = OpenClaw.Runtime.ProviderConfig.get_api_key("OPENAI_API_KEY")
 
     if is_nil(api_key) do
       {:ok, %{

@@ -180,7 +180,7 @@ defmodule OpenClaw.Runtime.CustomProvider do
   # --- Private ---
 
   defp do_chat(provider, model, messages, system_prompt, opts) do
-    api_key = System.get_env(provider.api_key_env || "")
+    api_key = OpenClaw.Runtime.ProviderConfig.get_api_key(provider.api_key_env || "")
 
     if is_nil(api_key) or api_key == "" do
       {:ok, %{

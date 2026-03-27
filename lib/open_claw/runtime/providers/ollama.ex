@@ -5,7 +5,7 @@ defmodule OpenClaw.Runtime.Providers.Ollama do
 
   @impl true
   def chat(model, messages, system_prompt, _opts \\ []) do
-    base_url = System.get_env("OLLAMA_URL") || "http://localhost:11434"
+    base_url = OpenClaw.Runtime.ProviderConfig.get_api_key("OLLAMA_URL") || "http://localhost:11434"
 
     formatted = [%{"role" => "system", "content" => system_prompt}] ++ format_messages(messages)
 

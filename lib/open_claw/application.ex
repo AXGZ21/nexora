@@ -9,6 +9,7 @@ defmodule OpenClaw.Application do
       {DNSCluster, query: Application.get_env(:open_claw, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: OpenClaw.PubSub},
       {Registry, keys: :unique, name: OpenClaw.AgentRegistry},
+      OpenClaw.Runtime.ProviderConfig,
       OpenClaw.Billing.CostTracker,
       OpenClaw.Billing.BudgetEnforcer,
       OpenClaw.Skills.SkillRegistry,
